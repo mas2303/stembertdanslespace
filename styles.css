@@ -1123,3 +1123,285 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
         text-align: center;
     }
 }
+
+/* Parcours Patrouille 1 */
+.coord-note {
+    font-size: 0.75rem;
+    color: var(--vert-militaire);
+    font-weight: normal;
+}
+
+.parcours-hidden {
+    display: none !important;
+}
+
+.parcours-hidden.parcours-show {
+    display: block !important;
+}
+
+.parcours-actions.parcours-hidden.parcours-show {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.parcours-texte {
+    max-width: 1100px;
+    margin: 0 auto 1rem;
+    padding: 0 2rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--texte);
+}
+
+.parcours-texte.hint {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.parcours-texte code {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85em;
+    color: var(--accent);
+}
+
+.parcours-h3 {
+    max-width: 1100px;
+    margin: 1.5rem auto 0.75rem;
+    padding: 0 2rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+}
+
+.parcours-actions {
+    max-width: 1100px;
+    margin: 1.5rem auto;
+    padding: 0 2rem;
+}
+
+.parcours-skip {
+    max-width: 900px;
+    margin: 1rem auto 0;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.parcours-partie-cockpit,
+.parcours-partie-carte {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 0 0.5rem;
+}
+
+.section-video .parcours-separateur {
+    margin-top: 1.25rem;
+}
+
+.section-etape.section-video .parcours-separateur {
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.parcours-partie-titre {
+    max-width: 1100px;
+    margin: 0 auto 1rem;
+    padding: 0 2rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    color: var(--texte);
+}
+
+.parcours-partie-badge {
+    display: inline-block;
+    margin-right: 0.65rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--vert-militaire);
+    color: var(--accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+}
+
+.parcours-separateur {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 2rem auto 1.25rem;
+    padding: 0 2rem;
+}
+
+.parcours-separateur-line {
+    flex: 1;
+    height: 1px;
+    background: var(--vert-militaire);
+    opacity: 0.55;
+}
+
+.parcours-separateur-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Texte d’intro dans .container — aligné avec le titre de section */
+.container .parcours-texte-contained {
+    margin-top: -1rem;
+    margin-bottom: 1.75rem;
+    max-width: 40rem;
+    line-height: 1.55;
+}
+
+/* Carte puis premier bloc (vidéo, etc.) */
+.section-etape .map-wrapper + .parcours-bloc {
+    margin-top: 2.25rem;
+}
+
+.section-etape .parcours-bloc + .parcours-bloc {
+    margin-top: 2rem;
+}
+
+.parcours-partie-cockpit + .parcours-bloc {
+    margin-top: 2rem;
+}
+
+.parcours-sur-place {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-etape .map-wrapper + .parcours-sur-place {
+    margin-top: 2.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(45, 74, 45, 0.65);
+}
+
+.parcours-sur-place .parcours-actions {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.section-etape-visio .section-title {
+    margin-bottom: 1.25rem;
+}
+
+.section-etape-visio .video-wrapper {
+    margin-top: 1.5rem;
+}
+
+.section-etape {
+    padding: 3rem 0;
+    background: var(--vert-fonce);
+    border-top: 1px solid var(--vert-militaire);
+}
+
+.section-etape.section-map {
+    background: var(--noir-2);
+}
+
+.form-parcours {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.parcours-err {
+    color: #c44;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.visio-placeholder {
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 2rem;
+    border: 1px dashed var(--vert-militaire);
+    text-align: center;
+    color: var(--texte);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+}
+
+.section-etape-visio .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.galerie-cinq {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto 1.5rem;
+    padding: 0 2rem;
+}
+
+.photo-indice {
+    margin: 0;
+    border: 2px solid var(--vert-militaire);
+    overflow: hidden;
+    background: var(--noir-2);
+}
+
+.photo-indice img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.section-fin-mission {
+    padding: 3rem 0 4rem;
+    background: linear-gradient(180deg, var(--vert-fonce) 0%, var(--noir-2) 100%);
+    border-top: 1px solid var(--vert-militaire);
+}
+
+.bloc-message-final {
+    max-width: 700px;
+    margin: 1.5rem auto 0;
+    padding: 1.5rem;
+    border: 1px solid var(--vert-militaire);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.bloc-message-final p {
+    margin: 0 0 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.55;
+    color: var(--texte-clair);
+}
+
+.bloc-message-final p:last-child {
+    margin-bottom: 0;
+}
+
+.message-teaser {
+    margin-top: 1.25rem !important;
+    padding-top: 1rem;
+    border-top: 1px solid var(--vert-militaire);
+}
+
+.message-rdv {
+    color: var(--accent) !important;
+    font-weight: 600;
+}
+
+.audio-parcours {
+    width: 100%;
+    margin: 0.75rem 0 0;
+}
+
+.footer-parcours {
+    margin-top: 0;
+}

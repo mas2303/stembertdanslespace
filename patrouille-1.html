@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body data-patrouille="1" class="identifie">
+<body data-patrouille="1" data-parcours="patrouille-1" data-nombre-points="8" class="identifie">
     <div class="scanline" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
 
@@ -36,9 +36,9 @@
                 <span class="hero-title">COMMANDEMENT</span>
                 <span class="hero-sub">PATROUILLE 1 — CHEMIN ALPHA</span>
             </h1>
-            <p class="hero-desc">Système de coordination tactique — En ligne et opérationnel</p>
+            <p class="hero-desc">Patrouille Alpha — inscription, briefing vidéo et enchaînement des objectifs.</p>
             <div class="hero-cta">
-                <button type="button" class="btn btn-primary" id="btn-exfiltration">Exfiltration</button>
+                <button type="button" class="btn btn-primary" id="btn-exfiltration">Entrer dans la patrouille</button>
             </div>
         </div>
     </header>
@@ -48,9 +48,9 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-badge">TOTEM</span>
-                    PATROUILLE 1 — PARTICIPANTS
+                    PATROUILLE 1 — MEMBRES PRÉSENTS
                 </h2>
-                <p class="participants-intro">Enregistrez les membres de la patrouille 1 (Chemin Alpha). Ajoutez autant de participants que nécessaire, puis validez.</p>
+                <p class="participants-intro">Enregistrez chaque membre présent (totem ou identité). Ajoutez une ligne par personne, puis validez!</p>
                 <form id="form-participants" class="form-participants">
                     <div id="liste-participants">
                         <div class="participant-row">
@@ -66,66 +66,316 @@
             </div>
         </section>
 
-        <section class="suite-section section-video">
+        <!-- Vidéo d’intro -->
+        <section id="section-intro-video" class="suite-section section-video" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">BRIEFING</span> VIDÉO D’INTRODUCTION</h2>
+                <p class="parcours-texte parcours-texte-contained">Si la vidéo démarre, la suite s’ouvre à la fin. Sinon, passage automatique (délais dans le script).</p>
+            </div>
+            <div class="parcours-separateur" role="separator" aria-label="Lecture vidéo">
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+                <span class="parcours-separateur-label">Vidéo — Briefing d’introduction</span>
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+            </div>
             <div class="video-wrapper">
-                <video id="video-exfiltration" class="video-tactical" playsinline controls>
-                    <source src="video.mp4" type="video/mp4">
+                <video id="video-intro-patrouille" class="video-tactical" playsinline controls>
+                    <source src="video-intro-p1.mp4" type="video/mp4">
                     Votre navigateur ne prend pas en charge la lecture vidéo.
                 </video>
             </div>
+            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-skip-intro">Passer à la carte (point 1)</button></p>
         </section>
 
-        <!-- COORDONNÉES CARTE 1 (position cible) — Modifiez lat, lng, zoom ci-dessous -->
-        <section id="section-map" class="suite-section section-map" aria-hidden="true">
+        <!-- Point 1 — cockpit seul ; le point 2 est la vidéo pilotes (section suivante) -->
+        <section id="section-etape-1" class="suite-section section-map section-etape" aria-hidden="true">
             <h2 class="section-title section-title-map">
-                <span class="title-badge">POSITION</span>
-                COORDONNÉES CIBLE
+                <span class="title-badge">POINT 1</span>
+                CARTE — COCKPIT (FICTION)
             </h2>
-            <p class="map-coords">50.4809909, 5.9695865 — Niveau 13</p>
-            <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps?q=50.4809909,5.9695865&z=13&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — position cible"></iframe>
+            <p class="map-coords">50.481200, 5.969800 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
+            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Une fois la zone validée, vous pourrez passer au <strong>point 2</strong> (vidéo des deux pilotes).</p>
+            <div class="parcours-partie parcours-partie-cockpit">
+                <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Carte &amp; repérage cockpit</p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=50.481200,5.969800&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
+                </div>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Zone cockpit localisée — valider</button>
+                </div>
             </div>
-        </section>
-
-        <section class="suite-section section-choix">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="title-badge">EXFIL</span>
-                    VOUS DEVEZ FAIRE LE BON CHOIX
-                </h2>
-                <p class="choix-intro">Votre chemin d'exfiltration. Cliquez pour afficher la carte.</p>
-                <div class="chemins chemins-1">
-                    <button type="button" class="chemin-carte chemin-carte-unique" data-chemin="alpha" data-patrouille="1">
-                        <span class="chemin-id">VOTRE CHEMIN</span>
-                        <span class="chemin-nom">CHEMIN ALPHA</span>
-                    </button>
+            <div id="bloc-apres-cockpit" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Étape suivante">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Cockpit validé</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <p class="parcours-texte">Direction le <strong>point 2</strong> pour la vidéo des deux pilotes.</p>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — vidéo pilotes</button>
                 </div>
             </div>
         </section>
 
-        <!-- COORDONNÉES CARTE 2 (point exfiltration) — Modifiez lat, lng, zoom ci-dessous -->
-        <section id="section-map-choix" class="section-map section-map-choix" aria-hidden="true">
-            <h2 class="section-title section-title-map">
-                <span class="title-badge">POINT D'EXFILTRATION</span>
-                COORDONNÉES SÉLECTIONNÉES
-            </h2>
-            <p class="map-coords">50.4866937, 5.9642242 — Niveau 14</p>
-            <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps?q=50.4866937,5.9642242&z=14&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point d'exfiltration"></iframe>
+        <!-- Point 2 — vidéo pilotes + carte zone chimistes (la vidéo chimistes est au point 3) -->
+        <section id="section-etape-2" class="suite-section section-video section-etape" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">POINT 2</span> PILOTES &amp; CARTE CHIMISTES</h2>
+                <p class="parcours-texte parcours-texte-contained">D’abord la vidéo des pilotes, puis la carte de la zone chimistes. Le <strong>point 3</strong> commence par la vidéo des chimistes.</p>
+            </div>
+            <div class="parcours-separateur" role="separator" aria-label="Vidéo pilotes">
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+                <span class="parcours-separateur-label">Partie 1 — Vidéo des deux pilotes</span>
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+            </div>
+            <div class="video-wrapper">
+                <video id="video-pilotes" class="video-tactical" playsinline controls>
+                    <source src="video-pilotes-p1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-apres-pilotes">J’ai vu l’essentiel — afficher la suite</button></p>
+            <div id="bloc-info-apres-pilotes" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Carte chimistes">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 2 — Carte zone chimistes</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <p class="parcours-texte"><strong>Indice :</strong> les chimistes vous attendent sur la zone ci-dessous. Mémorisez-la : au <strong>point 3</strong>, la vidéo des chimistes se joue dès l’ouverture.</p>
+                <div class="parcours-partie parcours-partie-carte">
+                    <p class="map-coords">50.482500, 5.970100 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps?q=50.482500,5.970100&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — zone chimistes (point 2)"></iframe>
+                    </div>
+                </div>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-3">Accéder au point 3 — vidéo chimistes</button>
+                </div>
             </div>
         </section>
 
-        <main class="suite-section"></main>
+        <!-- Point 3 — commence par la vidéo des chimistes -->
+        <section id="section-etape-3" class="suite-section section-map section-etape" aria-hidden="true">
+            <h2 class="section-title section-title-map">
+                <span class="title-badge">POINT 3</span>
+                CHIMISTES &amp; EXERCICE (FICTION)
+            </h2>
+            <p class="parcours-texte">Le point 3 démarre par la <strong>vidéo des chimistes</strong>, puis l’énigme et les coordonnées du moteur (point 4).</p>
+            <div id="bloc-video-chimistes" class="parcours-bloc">
+                <div class="parcours-separateur" role="separator" aria-label="Vidéo des chimistes">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 1 — Vidéo des chimistes</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <div class="video-wrapper">
+                    <video id="video-chimistes" class="video-tactical" playsinline controls>
+                        <source src="video-chimistes-p1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-chimistes">Passer à l’énigme</button></p>
+            </div>
+            <div id="bloc-exo-chimie" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Énigme">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 3 — Énigme</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <h3 class="parcours-h3">Coordonnées du point suivant (moteur)</h3>
+                <p class="parcours-texte">Résolvez l’énigme pour afficher les coordonnées du <strong>point 4</strong> (moteur). <em>Réponse fictive (modifiable dans patrouille-1.js) : <code>alpha-7</code></em></p>
+                <form id="form-exo-chimie" class="form-parcours">
+                    <label class="participant-label" for="input-exo-chimie">Votre réponse</label>
+                    <input type="text" id="input-exo-chimie" class="participant-totem" placeholder="Code / réponse" required autocomplete="off">
+                    <p id="err-exo-chimie" class="parcours-err" hidden>Réponse incorrecte.</p>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+            </div>
+            <div id="bloc-coords-point3" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Indice suivant">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 4 — Indice suivant</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <p class="parcours-texte"><strong>Coordonnées (fictives) :</strong> 50.483100, 5.968000 — rendez-vous au <strong>moteur</strong> (point 4).</p>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-4">Accéder au point 4 — moteur</button>
+                </div>
+            </div>
+        </section>
 
-        <footer class="suite-section footer-militaire">
+        <!-- Point maps 4 — moteur + ingénieurs + 150 pas + GPS -->
+        <section id="section-etape-4" class="suite-section section-map section-etape" aria-hidden="true">
+            <h2 class="section-title section-title-map">
+                <span class="title-badge">POINT 4</span>
+                MOTEUR &amp; INGÉNIEURS (FICTION)
+            </h2>
+            <p class="parcours-texte">Retrouvez le <strong>moteur</strong>. Les deux ingénieurs vous donnent l’indice pour la suite. Ensuite : <strong>150 pas</strong> depuis le repère indiqué, puis envoyez votre position GPS pour débloquer le point 5.</p>
+            <div class="parcours-partie parcours-partie-carte">
+                <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Carte &amp; validation sur place</p>
+                <p class="map-coords">50.483100, 5.968000 — Niveau 16 <span class="coord-note">(à modifier)</span></p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=50.483100,5.968000&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 4"></iframe>
+                </div>
+                <div id="parcours-avant-video-p4" class="parcours-sur-place">
+                    <p class="parcours-texte">Lorsque la patrouille est <strong>physiquement au point 4</strong> (moteur), validez pour afficher la vidéo des ingénieurs.</p>
+                    <div class="parcours-actions">
+                        <button type="button" class="btn btn-primary" id="btn-sur-place-p4">Nous sommes au point 4 — afficher la vidéo</button>
+                    </div>
+                </div>
+            </div>
+            <div id="bloc-video-ingenieurs" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Vidéo des ingénieurs">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 2 — Vidéo des deux ingénieurs</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <div class="video-wrapper">
+                    <video id="video-ingenieurs" class="video-tactical" playsinline controls>
+                        <source src="video-ingenieurs-p1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-ingenieurs">Passer au formulaire GPS</button></p>
+            </div>
+            <div id="bloc-form-gps" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Saisie GPS">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 3 — Saisie GPS</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <h3 class="parcours-h3">Position après 150 pas</h3>
+                <form id="form-gps-etape3" class="form-parcours">
+                    <label class="participant-label" for="input-lat">Latitude (après 150 pas)</label>
+                    <input type="text" id="input-lat" class="participant-totem" placeholder="ex. 50.4831" inputmode="decimal">
+                    <label class="participant-label" for="input-lng">Longitude</label>
+                    <input type="text" id="input-lng" class="participant-totem" placeholder="ex. 5.9680" inputmode="decimal">
+                    <p id="err-gps" class="parcours-err" hidden></p>
+                    <button type="submit" class="btn btn-primary">Valider la position — débloquer le point 5</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Point 5 — Visio pilote / chef d’État -->
+        <section id="section-etape-5" class="suite-section section-etape section-etape-visio" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">POINT 5</span> VISIOCONFÉRENCE</h2>
+                <p class="parcours-texte parcours-texte-contained">Échange entre le pilote et le chef d’État : vous comprenez que vous avez été <strong>manipulés</strong>. La suite se débloque après la vidéo (ou repli si le fichier est absent).</p>
+                <div class="visio-placeholder">
+                    <p>Zone libre : iframe visio, lien YouTube, etc.</p>
+                </div>
+                <div class="parcours-separateur" role="separator" aria-label="Vidéo visioconférence">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Vidéo — Enregistrement visio</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <div class="video-wrapper">
+                    <video id="video-visio-p4" class="video-tactical" playsinline controls>
+                        <source src="video-visio-p1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-visio">Passer au point 6</button></p>
+                <div id="bloc-btn-etape-6" class="parcours-actions parcours-hidden" aria-hidden="true">
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-6-indices">Continuer vers le point 6</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Point 6 — photos + similitudes + carte + objet (dague) -->
+        <section id="section-etape-6" class="suite-section section-map section-etape" aria-hidden="true">
+            <h2 class="section-title section-title-map">
+                <span class="title-badge">POINT 6</span>
+                INDICES VISUELS (FICTION)
+            </h2>
+            <p class="parcours-texte">Observez les <strong>photos</strong> et les <strong>similitudes</strong>. Sous les images, saisissez le nom de l’objet identifié : la <strong>carte</strong> ne s’affiche qu’avec la bonne réponse, puis vous pourrez continuer vers le point 7.</p>
+            <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Indices visuels &amp; objet à déclarer</p>
+            <div class="galerie-cinq">
+                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1a/400/300" alt="Indice 1 (placeholder)" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1b/400/300" alt="Indice 2 (placeholder)" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1c/400/300" alt="Indice 3 (placeholder)" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1d/400/300" alt="Indice 4 (placeholder)" loading="lazy" width="400" height="300"></figure>
+            </div>
+            <form id="form-objet-totem" class="form-parcours">
+                <label class="participant-label" for="input-objet">Quel objet avez-vous identifié ?</label>
+                <input type="text" id="input-objet" class="participant-totem" placeholder="ex. dague" required autocomplete="off">
+                <p id="err-objet" class="parcours-err" hidden>Objet non reconnu.</p>
+                <p class="parcours-texte hint"><em>Réponse fictive (modifiable dans patrouille-1.js) : <code>dague</code></em></p>
+                <button type="submit" class="btn btn-primary" id="btn-valider-objet-p5">Valider — afficher la carte</button>
+            </form>
+            <div id="bloc-carte-point5" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Carte">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 2 — Carte débloquée</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <h3 class="parcours-h3">Itinéraire</h3>
+                <p class="map-coords">Lien carte (fictif) : 50.484200, 5.971000 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=50.484200,5.971000&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 6"></iframe>
+                </div>
+            </div>
+            <div id="bloc-vers-etape-7" class="parcours-actions parcours-hidden" aria-hidden="true">
+                <button type="button" class="btn btn-primary" id="btn-vers-etape-7-adieu">Continuer vers le point 7</button>
+            </div>
+        </section>
+
+        <!-- Point 7 — adieu + question restaurant -->
+        <section id="section-etape-7" class="suite-section section-video section-etape" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">POINT 7</span> MESSAGE PERSONNEL</h2>
+                <p class="parcours-texte parcours-texte-contained">Vidéo d’adieu du pilote à sa femme. Ensuite la question sur la vue du restaurant s’affiche (après la fin de la vidéo ou repli si le fichier est absent).</p>
+            </div>
+            <div class="parcours-separateur" role="separator" aria-label="Vidéo message personnel">
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+                <span class="parcours-separateur-label">Vidéo — Message personnel</span>
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+            </div>
+            <div class="video-wrapper">
+                <video id="video-adieu" class="video-tactical" playsinline controls>
+                    <source src="video-adieu-p1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-adieu">Passer à la question</button></p>
+            <div class="container">
+                <div id="bloc-form-vue-restaurant" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                    <div class="parcours-separateur" role="separator" aria-label="Question restaurant">
+                        <span class="parcours-separateur-line" aria-hidden="true"></span>
+                        <span class="parcours-separateur-label">Partie 2 — Question</span>
+                        <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="parcours-h3">Vue du restaurant</h3>
+                    <form id="form-vue-restaurant" class="form-parcours">
+                        <label class="participant-label" for="input-vue-restaurant">Comment était la vue depuis le restaurant ?</label>
+                        <input type="text" id="input-vue-restaurant" class="participant-totem" placeholder="Un mot (ex. lac)" required autocomplete="off">
+                        <p id="err-vue" class="parcours-err" hidden>Réponse incorrecte.</p>
+                        <p class="parcours-texte hint"><em>Réponse attendue (fictive) : <code>lac</code> — modifiable dans patrouille-1.js</em></p>
+                        <button type="submit" class="btn btn-primary">Valider — débloquer le point 8</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Point 8 — appel, teaser, fin timer, rdv Gileppe -->
+        <section id="section-etape-8" class="suite-section section-etape section-fin-mission" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">POINT 8</span> RÉVÉLATION</h2>
+                <p class="parcours-texte">Ici vous débloquez la compréhension de l’<strong>appel téléphonique</strong> et ce qu’il se passe réellement.</p>
+                <div class="bloc-message-final">
+                    <p><strong>Communication :</strong> intégrez le fichier ou lien audio de l’appel (<code>appel-p1.mp3</code> ou lecteur ci-dessous).</p>
+                    <audio class="audio-parcours" controls preload="metadata">
+                        <source src="appel-p1.mp3" type="audio/mpeg">
+                    </audio>
+                    <p class="message-teaser">Cette histoire sera tirée au clair <strong>la semaine prochaine</strong> — préparez-vous pour la mission suivante.</p>
+                    <p class="message-rdv"><strong>Rendez-vous final (fictif, à modifier) :</strong> parking de la Gileppe — coordonnées indicatives 50.486000, 5.974500.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer-parcours" class="suite-section footer-militaire footer-parcours" aria-hidden="true">
             <div class="footer-content">
                 <span class="footer-brand">◆ OP TACTICAL — Patrouille 1</span>
                 <span class="footer-sep">|</span>
-                <span>Système sécurisé — Tous droits réservés</span>
+                <span>Système sécurisé — Parcours Chemin Alpha</span>
             </div>
         </footer>
     </div>
 
     <script src="patrouille-common.js"></script>
+    <script src="patrouille-1.js"></script>
 </body>
 </html>

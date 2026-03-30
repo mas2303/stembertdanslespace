@@ -1,5 +1,6 @@
 (function() {
     var DELAY_ENTRE_SECTIONS = 5000;
+    var parcoursP1 = document.body.getAttribute('data-parcours') === 'patrouille-1';
     var sections = document.querySelectorAll('#suite-site .suite-section');
     var video = document.getElementById('video-exfiltration');
     var mapSection = document.getElementById('section-map');
@@ -43,7 +44,7 @@
     }
 
     var formParticipants = document.getElementById('form-participants');
-    if (formParticipants) {
+    if (formParticipants && !parcoursP1) {
         formParticipants.addEventListener('submit', function(e) {
             e.preventDefault();
             var inputs = document.querySelectorAll('#form-participants .participant-totem');
@@ -73,7 +74,7 @@
         });
     });
 
-    if (video && mapSection) {
+    if (video && mapSection && !parcoursP1) {
         video.addEventListener('ended', function() {
             var idx = Array.prototype.indexOf.call(sections, mapSection);
             if (idx >= 0) {
@@ -127,5 +128,14 @@
         el.textContent = h + 'h ' + m + 'm ' + s + 's';
     }
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    var countdownIntervalId = setInterval(updateCountdown, 1000);
+
+    window.stopPatrouilleExfilCountdown = function(label) {
+        clearInterval(countdownIntervalId);
+        var el = document.getElementById('countdown');
+        if (el) {
+            el.textContent = label || 'TERMINÉ';
+            el.classList.add('countdown-ended');
+        }
+    };
 })();
