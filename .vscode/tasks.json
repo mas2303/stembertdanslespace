@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Démarrer serveur local (thirion)",
+      "type": "shell",
+      "command": "npx",
+      "args": ["serve", "-l", "3000", "--no-clipboard"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {}
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(.*)$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Serving|localhost:3000|Local:|http://"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Serveur port 5000 (caméra redemandée)",
+      "type": "shell",
+      "command": "npx",
+      "args": ["serve", "-l", "5000", "--no-clipboard"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {}
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": { "regexp": "^(.*)$", "file": 1 },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Serving|localhost:5000|Local:|http://"
+        }
+      },
+      "presentation": { "reveal": "silent", "panel": "shared" }
+    }
+  ]
+}

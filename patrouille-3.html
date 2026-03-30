@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OP TACTICAL — Patrouille 3 (Charlie)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-patrouille="3" class="identifie">
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <nav class="nav-tactical">
+        <div class="nav-brand">
+            <span class="badge">◆</span>
+            <span>OP TACTICAL — Patrouille 3</span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-countdown">
+                <span class="countdown-label">Exfiltration :</span>
+                <span class="countdown-value" id="countdown">--h --m --s</span>
+            </li>
+        </ul>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <header class="hero-militaire">
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <p class="hero-tag">[ CLASSIFICATION: RESTREINT ]</p>
+            <h1>
+                <span class="hero-title">COMMANDEMENT</span>
+                <span class="hero-sub">PATROUILLE 3 — CHEMIN CHARLIE</span>
+            </h1>
+            <p class="hero-desc">Système de coordination tactique — En ligne et opérationnel</p>
+            <div class="hero-cta">
+                <button type="button" class="btn btn-primary" id="btn-exfiltration">Exfiltration</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="suite-site" class="suite-site" aria-hidden="true" tabindex="-1">
+        <section id="section-participants" class="section-participants">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-badge">TOTEM</span>
+                    PATROUILLE 3 — PARTICIPANTS
+                </h2>
+                <p class="participants-intro">Enregistrez les membres de la patrouille 3 (Chemin Charlie). Ajoutez autant de participants que nécessaire, puis validez.</p>
+                <form id="form-participants" class="form-participants">
+                    <div id="liste-participants">
+                        <div class="participant-row">
+                            <label class="participant-label">Participant 1</label>
+                            <input type="text" class="participant-totem" placeholder="TOTEM / IDENTITÉ" required>
+                        </div>
+                    </div>
+                    <div class="participants-actions">
+                        <button type="button" class="btn btn-outline" id="btn-ajouter-participant">+ AJOUTER UN PARTICIPANT</button>
+                        <button type="submit" class="btn btn-primary" id="btn-valider-participants">VALIDER</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="suite-section section-video">
+            <div class="video-wrapper">
+                <video id="video-exfiltration" class="video-tactical" playsinline controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Votre navigateur ne prend pas en charge la lecture vidéo.
+                </video>
+            </div>
+        </section>
+
+        <!-- COORDONNÉES CARTE 1 (position cible) — Modifiez lat, lng, zoom ci-dessous -->
+        <section id="section-map" class="suite-section section-map" aria-hidden="true">
+            <h2 class="section-title section-title-map">
+                <span class="title-badge">POSITION</span>
+                COORDONNÉES CIBLE
+            </h2>
+            <p class="map-coords">50.4809909, 5.9695865 — Niveau 13</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps?q=50.4809909,5.9695865&z=13&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — position cible"></iframe>
+            </div>
+        </section>
+
+        <section class="suite-section section-choix">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-badge">EXFIL</span>
+                    VOUS DEVEZ FAIRE LE BON CHOIX
+                </h2>
+                <p class="choix-intro">Votre chemin d'exfiltration. Cliquez pour afficher la carte.</p>
+                <div class="chemins chemins-1">
+                    <button type="button" class="chemin-carte chemin-carte-unique" data-chemin="charlie" data-patrouille="3">
+                        <span class="chemin-id">VOTRE CHEMIN</span>
+                        <span class="chemin-nom">CHEMIN CHARLIE</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- COORDONNÉES CARTE 2 (point exfiltration) — Modifiez lat, lng, zoom ci-dessous -->
+        <section id="section-map-choix" class="section-map section-map-choix" aria-hidden="true">
+            <h2 class="section-title section-title-map">
+                <span class="title-badge">POINT D'EXFILTRATION</span>
+                COORDONNÉES SÉLECTIONNÉES
+            </h2>
+            <p class="map-coords">50.4866937, 5.9642242 — Niveau 14</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps?q=50.4866937,5.9642242&z=14&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point d'exfiltration"></iframe>
+            </div>
+        </section>
+
+        <main class="suite-section"></main>
+
+        <footer class="suite-section footer-militaire">
+            <div class="footer-content">
+                <span class="footer-brand">◆ OP TACTICAL — Patrouille 3</span>
+                <span class="footer-sep">|</span>
+                <span>Système sécurisé — Tous droits réservés</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="patrouille-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Site Thirion (Chrome avec serveur)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Démarrer serveur local (thirion)"
+    },
+    {
+      "name": "Site Thirion (Edge avec serveur)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Démarrer serveur local (thirion)"
+    },
+    {
+      "name": "Ouvrir http://localhost:3000 (serveur déjà lancé)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Site Thirion — PORT 5000 (pour redemander la caméra)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Serveur port 5000 (caméra redemandée)"
+    }
+  ]
+}
