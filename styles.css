@@ -353,13 +353,18 @@ body.identifie nav.contenu-apres-identif {
 }
 
 .nav-countdown {
-    margin-left: 1.5rem;
-    padding-left: 1.5rem;
-    border-left: 1px solid var(--vert-militaire);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.15rem;
+}
+
+/* Compteur dans la barre fixe (pages patrouilles) — toujours visible au scroll */
+.nav-countdown--bar {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--vert-militaire);
 }
 
 .countdown-label {
@@ -1204,7 +1209,9 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
     .nav-tactical {
         padding-left: max(0.6rem, env(safe-area-inset-left));
         padding-right: max(0.6rem, env(safe-area-inset-right));
-        gap: 0.35rem;
+        gap: 0.5rem;
+        align-items: flex-start;
+        flex-wrap: nowrap;
     }
 
     .nav-brand {
@@ -1213,7 +1220,7 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
         gap: 0.3rem;
         flex: 1 1 0;
         min-width: 0;
-        max-width: calc(100% - 3.75rem);
+        max-width: calc(100% - 6.5rem);
         font-size: clamp(0.55rem, 2.6vw, 0.9rem);
         letter-spacing: 0.06em;
         line-height: 1.25;
@@ -1236,60 +1243,26 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
         overflow-wrap: anywhere;
     }
 
-    .nav-toggle {
-        flex: 0 0 auto;
-        display: flex;
-        z-index: 1001;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        height: 100dvh;
-        width: min(280px, calc(100vw - 1.25rem));
-        max-width: 100%;
-        box-sizing: border-box;
-        background: var(--vert-fonce);
-        flex-direction: column;
-        justify-content: center;
-        padding: max(2rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
-        border-left: 1px solid var(--vert-militaire);
-        transition: right 0.3s ease;
-        z-index: 1002;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-links.open {
-        right: 0;
-    }
-
-    .nav-countdown {
+    .nav-countdown--bar {
         margin-left: 0;
-        padding-left: 0;
-        border-left: none;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--vert-militaire);
-        align-items: center;
-        max-width: 100%;
+        padding-left: 0.5rem;
+        border-left: 1px solid rgba(45, 74, 45, 0.65);
+        min-width: 0;
+        max-width: 6rem;
+        align-items: flex-end;
     }
 
-    .nav-countdown .countdown-value {
-        font-size: clamp(0.75rem, 3.5vw, 0.9rem);
-        word-break: break-word;
+    .nav-countdown--bar .countdown-label {
+        font-size: 0.5rem;
+        letter-spacing: 0.12em;
+        text-align: right;
     }
 
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+    .nav-countdown--bar .countdown-value {
+        font-size: clamp(0.65rem, 2.8vw, 0.8rem);
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        text-align: right;
     }
 
     .hero-cta {

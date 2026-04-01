@@ -16,18 +16,15 @@
     <div class="scanline" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
 
-    <nav class="nav-tactical">
+    <nav class="nav-tactical" aria-label="Navigation">
         <div class="nav-brand">
             <span class="badge">◆</span>
             <span>OP TACTICAL — Patrouille 1</span>
         </div>
-        <ul class="nav-links">
-            <li class="nav-countdown">
-                <span class="countdown-label">Exfiltration :</span>
-                <span class="countdown-value" id="countdown">--h --m --s</span>
-            </li>
-        </ul>
-        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        <div class="nav-countdown nav-countdown--bar" aria-live="polite">
+            <span class="countdown-label">Exfiltration</span>
+            <span class="countdown-value" id="countdown">--h --m --s</span>
+        </div>
     </nav>
 
     <header class="hero-militaire">
