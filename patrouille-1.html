@@ -99,7 +99,7 @@
                     <iframe src="https://www.google.com/maps?q=50.510418,6.039995&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
                 </div>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Zone cockpit localisée — valider</button>
+                    <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Bien arrivé sur zone — valider</button>
                 </div>
             </div>
             <div id="bloc-apres-cockpit" class="parcours-bloc parcours-hidden" aria-hidden="true">
@@ -130,7 +130,7 @@
                     <source src="video-pilotes-p1.mp4" type="video/mp4">
                 </video>
             </div>
-            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-apres-pilotes">J’ai vu l’essentiel — afficher la suite</button></p>
+            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-apres-pilotes">Bien reçu</button></p>
             <div id="bloc-info-apres-pilotes" class="parcours-bloc parcours-hidden" aria-hidden="true">
                 <div class="parcours-separateur" role="separator" aria-label="Carte chimistes">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
@@ -145,7 +145,7 @@
                     </div>
                 </div>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-vers-etape-3">Accéder au point 3</button>
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-3">on est arrivés sur site</button>
                 </div>
             </div>
         </section>
@@ -193,7 +193,7 @@
             <div id="bloc-coords-point3" class="parcours-bloc parcours-hidden" aria-hidden="true">
                 <div class="parcours-separateur" role="separator" aria-label="Indice suivant">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Partie 4 — Indice suivant</span>
+                    <span class="parcours-separateur-label">Accéder à la carte</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <p class="parcours-texte"><strong>Coordonnées  :</strong> 50.533019, 6.004467 — rendez-vous au <strong>moteur</strong> (point 4).</p>
@@ -201,7 +201,7 @@
                     <iframe src="https://www.google.com/maps?q=50.533019,6.004467&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — moteur (point 4)"></iframe>
                 </div>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-vers-etape-4">Accéder au point 4 — moteur</button>
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-4">On est en position</button>
                 </div>
             </div>
         </section>
@@ -266,7 +266,7 @@
                     <iframe src="https://www.google.com/maps?q=50.575722,5.967809&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — itinéraire (point 4)"></iframe>
                 </div>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-gps-vers-etape-5">Accéder au point 5 — visioconférence</button>
+                    <button type="button" class="btn btn-primary" id="btn-gps-vers-etape-5">On est en position</button>
                 </div>
             </div>
         </section>
@@ -309,12 +309,7 @@
                
                 <button type="submit" class="btn btn-primary" id="btn-valider-objet-p5">Valider — afficher la carte</button>
             </form>
-            <div id="bloc-carte-point5" class="parcours-bloc parcours-hidden" aria-hidden="true">
-                <div class="parcours-separateur" role="separator" aria-label="Carte">
-                    <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Partie 2 — Carte débloquée</span>
-                    <span class="parcours-separateur-line" aria-hidden="true"></span>
-                </div>
+            
                 <h3 class="parcours-h3">Itinéraire</h3>
                 <p class="map-coords">Lien carte  : 50.587840, 5.970914 — Niveau 15 <span class="coord-note"></span></p>
                 <div class="map-wrapper">
@@ -322,7 +317,7 @@
                 </div>
             </div>
             <div id="bloc-vers-etape-7" class="parcours-actions parcours-hidden" aria-hidden="true">
-                <button type="button" class="btn btn-primary" id="btn-vers-etape-7-adieu">Continuer vers le point 7</button>
+                <button type="button" class="btn btn-primary" id="btn-vers-etape-7-adieu">On est en haut!</button>
             </div>
         </section>
 
@@ -352,7 +347,7 @@
                     <h3 class="parcours-h3">Vue du restaurant</h3>
                     <form id="form-vue-restaurant" class="form-parcours">
                         <label class="participant-label" for="input-vue-restaurant">Que voyez vous depuis le restaurant?</label>
-                        <input type="text" id="input-vue-restaurant" class="participant-totem" placeholder="Un mot (ex. lac)" required autocomplete="off">
+                        <input type="text" id="input-vue-restaurant" class="participant-totem" placeholder="Un mot (ex. canard)" required autocomplete="off">
                         <p id="err-vue" class="parcours-err" hidden>Réponse incorrecte.</p>
                         <button type="submit" class="btn btn-primary">Valider — débloquer le point 8</button>
                     </form>
