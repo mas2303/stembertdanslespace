@@ -1,6 +1,8 @@
 (function() {
     var DELAY_ENTRE_SECTIONS = 5000;
-    var parcoursP1 = document.body.getAttribute('data-parcours') === 'patrouille-1';
+    /** Parcours détaillé (patrouille-1.js …) : pas de handler formulaire « ancien » common. */
+    var dataParcours = document.body.getAttribute('data-parcours') || '';
+    var isParcoursPatrouilleDetail = /^patrouille-[1-4]$/.test(dataParcours);
     var sections = document.querySelectorAll('#suite-site .suite-section');
     var video = document.getElementById('video-exfiltration');
     var mapSection = document.getElementById('section-map');
@@ -44,7 +46,7 @@
     }
 
     var formParticipants = document.getElementById('form-participants');
-    if (formParticipants && !parcoursP1) {
+    if (formParticipants && !isParcoursPatrouilleDetail) {
         formParticipants.addEventListener('submit', function(e) {
             e.preventDefault();
             var inputs = document.querySelectorAll('#form-participants .participant-totem');
@@ -74,7 +76,7 @@
         });
     });
 
-    if (video && mapSection && !parcoursP1) {
+    if (video && mapSection && !isParcoursPatrouilleDetail) {
         video.addEventListener('ended', function() {
             var idx = Array.prototype.indexOf.call(sections, mapSection);
             if (idx >= 0) {
@@ -89,10 +91,34 @@
     }
 
     var navToggle = document.querySelector('.nav-toggle');
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('open');
+    var navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('open');
             this.classList.toggle('active');
+            document.body.classList.toggle('nav-menu-open', navLinks.classList.contains('open'));
+        });
+        document.addEventListener('click', function(e) {
+            if (!navLinks.classList.contains('open')) return;
+            if (navToggle.contains(e.target) || navLinks.contains(e.target)) return;
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('nav-menu-open');
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            if (!navLinks.classList.contains('open')) return;
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+            document.body.classList.remove('nav-menu-open');
+        });
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('nav-menu-open');
+            }
         });
     }
 

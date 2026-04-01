@@ -1,11 +1,11 @@
 /**
- * Parcours Patrouille 1 — déblocages séquentiels.
- * Modifiez CONFIG ci-dessous (réponses, coordonnées, fichiers vidéo).
+ * Parcours Patrouille 2 — déblocages séquentiels (copie logique patrouille 1).
+ * Modifiez CONFIG (énigme chimie, objet 4 photos, restaurant) et les cartes dans patrouille-2.html.
  */
 (function() {
-    if (document.body.getAttribute('data-parcours') !== 'patrouille-1') return;
+    if (document.body.getAttribute('data-parcours') !== 'patrouille-2') return;
 
-    /** Cartes / iframes : `patrouille-1.html`. Similitude (4 photos) : `objetCle`, `messagesObjetAcceptes` + images point 6. */
+    /** Cartes / iframes : éditer `patrouille-2.html`. Similitude (4 photos) : `objetCle`, `messagesObjetAcceptes` + images point 6 dans le HTML. */
     var CONFIG = {
         /** Nombre de sections #section-etape-1 … #section-etape-N (hors intro / participants). À ajuster si vous ajoutez ou retirez des étapes. */
         nombrePoints: 8,
@@ -314,7 +314,7 @@
         }
     }
 
-    window.PARCOURS_PATROUILLE_1 = {
+    window.PARCOURS_PATROUILLE_2 = {
         nombrePoints: CONFIG.nombrePoints,
         config: CONFIG
     };
