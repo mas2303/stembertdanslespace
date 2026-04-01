@@ -133,11 +133,12 @@
         observer.observe(el);
     });
 
-    var end = new Date();
-    if (end.getMonth() >= 3) end.setFullYear(end.getFullYear() + 1);
-    end.setMonth(3);
-    end.setDate(30);
-    end.setHours(17, 0, 0, 0);
+    /* Compte à rebours jusqu’au 4 avril à 17h00 (heure locale). Si la date est passée cette année, cible l’année suivante. */
+    var nowInit = new Date();
+    var end = new Date(nowInit.getFullYear(), 3, 4, 17, 0, 0, 0);
+    if (end.getTime() <= nowInit.getTime()) {
+        end = new Date(nowInit.getFullYear() + 1, 3, 4, 17, 0, 0, 0);
+    }
     function updateCountdown() {
         var now = new Date();
         var diff = end - now;
