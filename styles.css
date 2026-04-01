@@ -778,6 +778,7 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
     color: var(--texte-clair);
     text-shadow: 0 0 40px rgba(201, 162, 39, 0.2);
     animation: titleIn 1s ease-out;
+    white-space: nowrap;
 }
 
 .hero-sub {
@@ -1287,12 +1288,11 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
     }
 
     .hero-title {
-        font-size: clamp(1.25rem, 8.5vw, 2.35rem);
-        letter-spacing: 0.06em;
+        font-size: clamp(0.72rem, 5.1vw, 2.35rem);
+        letter-spacing: 0.05em;
         line-height: 1.08;
-        word-break: break-word;
-        overflow-wrap: anywhere;
-        padding: 0 0.15rem;
+        white-space: nowrap;
+        padding: 0;
     }
 
     .hero-sub {
