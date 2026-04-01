@@ -12,33 +12,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-index">
     <div class="scanline" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
 
-    <div class="ecran-identification" style="display: flex;">
-        <div class="identification-content">
-            <h1 class="identification-title">IDENTIFICATION</h1>
-            <p class="identification-sub">Chef de patrouille — Sélectionnez votre patrouille</p>
-            <div class="identification-choix">
-                <a href="patrouille-1.html" class="btn-identif btn-patrouille">
-                    <span class="btn-patrouille-num">1</span>
-                    <span class="btn-patrouille-chemin">CHEMIN ALPHA PATROUILLE DE AKHAL</span>
-                </a>
-                <a href="patrouille-2.html" class="btn-identif btn-patrouille">
-                    <span class="btn-patrouille-num">2</span>
-                    <span class="btn-patrouille-chemin">CHEMIN BRAVO PATROUILLE DE BINTURONG</span>
-                </a>
-                <a href="patrouille-3.html" class="btn-identif btn-patrouille">
-                    <span class="btn-patrouille-num">3</span>
-                    <span class="btn-patrouille-chemin">CHEMIN CHARLIE PATROUILLE DE CAPUCIN</span>
-                </a>
-                <a href="patrouille-4.html" class="btn-identif btn-patrouille">
-                    <span class="btn-patrouille-num">4</span>
-                    <span class="btn-patrouille-chemin">CHEMIN DELTA PATROUILLE DE CAPYBARA</span>
-                </a>
+    <div class="index-scroll">
+        <header class="index-sticky-bar" role="banner">
+            <div class="index-sticky-inner">
+                <span class="index-sticky-brand">◆ OP TACTICAL</span>
+                <div class="index-sticky-countdown" aria-live="polite">
+                    <span class="countdown-label">Exfiltration</span>
+                    <span id="countdown" class="countdown-value">--h --m --s</span>
+                </div>
             </div>
-        </div>
+        </header>
+
+        <main class="ecran-identification">
+            <div class="identification-content">
+                <h1 class="identification-title">IDENTIFICATION</h1>
+                <p class="identification-sub">Chef de patrouille — Sélectionnez votre patrouille</p>
+                <div class="identification-choix">
+                    <a href="patrouille-1.html" class="btn-identif btn-patrouille">
+                        <span class="btn-patrouille-num">1</span>
+                        <span class="btn-patrouille-chemin">CHEMIN ALPHA — PATROUILLE DE AKHAL</span>
+                    </a>
+                    <a href="patrouille-2.html" class="btn-identif btn-patrouille">
+                        <span class="btn-patrouille-num">2</span>
+                        <span class="btn-patrouille-chemin">CHEMIN BRAVO — PATROUILLE DE BINTURONG</span>
+                    </a>
+                    <a href="patrouille-3.html" class="btn-identif btn-patrouille">
+                        <span class="btn-patrouille-num">3</span>
+                        <span class="btn-patrouille-chemin">CHEMIN CHARLIE — PATROUILLE DE CAPUCIN</span>
+                    </a>
+                    <a href="patrouille-4.html" class="btn-identif btn-patrouille">
+                        <span class="btn-patrouille-num">4</span>
+                        <span class="btn-patrouille-chemin">CHEMIN DELTA — PATROUILLE DE CAPYBARA</span>
+                    </a>
+                </div>
+            </div>
+        </main>
     </div>
+
+    <script src="patrouille-common.js"></script>
 </body>
 </html>
