@@ -1265,8 +1265,58 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
         text-align: right;
     }
 
+    /* Hero — tient dans la largeur téléphone (évite débordement du titre) */
+    .hero-militaire {
+        padding-left: max(1.15rem, env(safe-area-inset-left));
+        padding-right: max(1.15rem, env(safe-area-inset-right));
+    }
+
+    .hero-content {
+        max-width: min(800px, 100%);
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 0.35rem;
+        box-sizing: border-box;
+    }
+
+    .hero-tag {
+        font-size: clamp(0.52rem, 2.6vw, 0.72rem);
+        letter-spacing: 0.1em;
+        line-height: 1.35;
+    }
+
+    .hero-title {
+        font-size: clamp(1.25rem, 8.5vw, 2.35rem);
+        letter-spacing: 0.06em;
+        line-height: 1.08;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        padding: 0 0.15rem;
+    }
+
+    .hero-sub {
+        font-size: clamp(0.62rem, 3.4vw, 0.95rem);
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        margin-top: 0.65rem;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-desc {
+        font-size: clamp(0.88rem, 3.6vw, 1.05rem);
+        line-height: 1.5;
+        max-width: 21rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 0.2rem;
+    }
+
     .hero-cta {
         flex-direction: column;
+        margin-top: 1.75rem;
+        padding: 0 0.2rem;
     }
 
     .btn {
