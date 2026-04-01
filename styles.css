@@ -1361,6 +1361,18 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
     vertical-align: middle;
 }
 
+.galerie-chimistes-p3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.galerie-chimistes-p3 .photo-indice {
+    max-width: 420px;
+    width: 100%;
+}
+
 .section-fin-mission {
     padding: 3rem 0 4rem;
     background: linear-gradient(180deg, var(--vert-fonce) 0%, var(--noir-2) 100%);

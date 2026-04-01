@@ -182,10 +182,6 @@
 
     document.getElementById('btn-vers-etape-3') && document.getElementById('btn-vers-etape-3').addEventListener('click', function() {
         reveal(document.getElementById('section-etape-3'));
-        var v = document.getElementById('video-chimistes');
-        waitForVideoEndOrFallback(v, function() {
-            showInner('bloc-exo-chimie');
-        });
     });
 
     document.getElementById('btn-suite-chimistes') && document.getElementById('btn-suite-chimistes').addEventListener('click', function() {
@@ -223,15 +219,25 @@
         showInner('bloc-form-gps');
     });
 
-    document.getElementById('form-gps-etape3') && document.getElementById('form-gps-etape3').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var err = document.getElementById('err-gps');
-        if (err) err.hidden = true;
+    function allerVisioEtape5() {
         reveal(document.getElementById('section-etape-5'));
         var v4 = document.getElementById('video-visio-p4');
         waitForVideoEndOrFallback(v4, function() {
             showInner('bloc-btn-etape-6');
         });
+    }
+
+    document.getElementById('form-gps-etape3') && document.getElementById('form-gps-etape3').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var err = document.getElementById('err-gps');
+        if (err) err.hidden = true;
+        showInner('bloc-itineraire-p4');
+        var blocIti = document.getElementById('bloc-itineraire-p4');
+        if (blocIti) blocIti.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('btn-gps-vers-etape-5') && document.getElementById('btn-gps-vers-etape-5').addEventListener('click', function() {
+        allerVisioEtape5();
     });
 
     document.getElementById('btn-vers-etape-6-indices') && document.getElementById('btn-vers-etape-6-indices').addEventListener('click', function() {

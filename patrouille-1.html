@@ -91,12 +91,12 @@
                 <span class="title-badge">POINT 1</span>
                 CARTE — COCKPIT (FICTION)
             </h2>
-            <p class="map-coords">50.481200, 5.969800 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
-            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Une fois la zone validée, vous pourrez passer au <strong>point 2</strong> 
+            <p class="map-coords">50.510418, 6.039995 — Niveau 15 <span class="coord-note"></span></p>
+            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Une fois la zone validée, vous pourrez passer au <strong>point 2</strong>.</p>
             <div class="parcours-partie parcours-partie-cockpit">
                 <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Carte &amp; repérage cockpit</p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.481200,5.969800&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.510418,6.039995&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
                 </div>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Zone cockpit localisée — valider</button>
@@ -108,7 +108,7 @@
                     <span class="parcours-separateur-label">Cockpit validé</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
-                <p class="parcours-texte">Direction le <strong>point 2</strong> 
+                <p class="parcours-texte">Direction le <strong>point 2</strong>.</p>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — vidéo pilotes</button>
                 </div>
@@ -137,11 +137,11 @@
                     <span class="parcours-separateur-label">Carte zone chimistes</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
-                <p class="parcours-texte"><strong>Indice :</strong> les chimistes vous attendent sur la zone ci-dessous. Mémorisez-la : au <strong>point 3</strong>,
+                <p class="parcours-texte"><strong>Indice :</strong> les chimistes vous attendent sur la zone ci-dessous. Mémorisez-la : au <strong>point 3</strong>.</p>
                 <div class="parcours-partie parcours-partie-carte">
-                    <p class="map-coords">50.482500, 5.970100 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
+                    <p class="map-coords">50.518356, 6.023498 — Niveau 15 <span class="coord-note"></span></p>
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps?q=50.482500,5.970100&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — zone chimistes (point 2)"></iframe>
+                        <iframe src="https://www.google.com/maps?q=50.518356,6.023498&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Carte — zone chimistes (point 2)"></iframe>
                     </div>
                 </div>
                 <div class="parcours-actions">
@@ -150,22 +150,28 @@
             </div>
         </section>
 
-        <!-- Point 3 — commence par la vidéo des chimistes -->
+        <!-- Point 3 — échanges chimistes (captures) puis énigme -->
         <section id="section-etape-3" class="suite-section section-map section-etape" aria-hidden="true">
             <h2 class="section-title section-title-map">
                 <span class="title-badge">POINT 3</span>
                 CHIMISTES &amp; EXERCICE (FICTION)
             </h2>
-            <div id="bloc-video-chimistes" class="parcours-bloc">
-                <div class="parcours-separateur" role="separator" aria-label="Vidéo des chimistes">
+            <div id="bloc-chimistes-captures" class="parcours-bloc">
+                <div class="parcours-separateur" role="separator" aria-label="Échanges des chimistes">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Partie 1 — Vidéo des chimistes</span>
+                    <span class="parcours-separateur-label">Partie 1 — Échanges des chimistes</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
-                <div class="video-wrapper">
-                    <video id="video-chimistes" class="video-tactical" playsinline controls>
-                        <source src="video-chimistes-p1.mp4" type="video/mp4">
-                    </video>
+                <div class="video-wrapper galerie-chimistes-p3">
+                    <figure class="photo-indice">
+                        <img src="chimistes-p3-1.png" alt="Conversation chimistes — capture 1" loading="lazy" width="400">
+                    </figure>
+                    <figure class="photo-indice">
+                        <img src="chimistes-p3-2.png" alt="Conversation chimistes — capture 2" loading="lazy" width="400">
+                    </figure>
+                    <figure class="photo-indice">
+                        <img src="chimistes-p3-3.png" alt="Conversation chimistes — capture 3" loading="lazy" width="400">
+                    </figure>
                 </div>
                 <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-chimistes">Passer à l’énigme</button></p>
             </div>
@@ -190,7 +196,10 @@
                     <span class="parcours-separateur-label">Partie 4 — Indice suivant</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
-                <p class="parcours-texte"><strong>Coordonnées (fictives) :</strong> 50.483100, 5.968000 — rendez-vous au <strong>moteur</strong> (point 4).</p>
+                <p class="parcours-texte"><strong>Coordonnées  :</strong> 50.533019, 6.004467 — rendez-vous au <strong>moteur</strong> (point 4).</p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=50.533019,6.004467&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — moteur (point 4)"></iframe>
+                </div>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-vers-etape-4">Accéder au point 4 — moteur</button>
                 </div>
@@ -205,9 +214,9 @@
             </h2>
             <div class="parcours-partie parcours-partie-carte">
                 <p class="parcours-partie-titre"><span class="parcours-partie-badge"></span> Carte &amp; validation sur place</p>
-                <p class="map-coords">50.483100, 5.968000 — Niveau 16 <span class="coord-note">(à modifier)</span></p>
+                <p class="map-coords">50.550609, 5.988570 — Niveau 16 <span class="coord-note">(à modifier)</span></p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.483100,5.968000&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 4"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.550609,5.988570&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 4"></iframe>
                 </div>
                 <div id="parcours-avant-video-p4" class="parcours-sur-place">
                     <p class="parcours-texte">Lorsque la patrouille est <strong>physiquement au point 4</strong> (moteur), validez pour afficher la vidéo des ingénieurs.</p>
@@ -232,7 +241,7 @@
             <div id="bloc-form-gps" class="parcours-bloc parcours-hidden" aria-hidden="true">
                 <div class="parcours-separateur" role="separator" aria-label="Saisie GPS">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label"Saisie GPS</span>
+                    <span class="parcours-separateur-label">Saisie GPS</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <h3 class="parcours-h3">Position après 150 pas</h3>
@@ -242,8 +251,23 @@
                     <label class="participant-label" for="input-lng">Longitude</label>
                     <input type="text" id="input-lng" class="participant-totem" placeholder="ex. 5.9680" inputmode="decimal">
                     <p id="err-gps" class="parcours-err" hidden></p>
-                    <button type="submit" class="btn btn-primary">Valider la position — débloquer le point 5</button>
+                    <button type="submit" class="btn btn-primary">Valider la position — afficher l’itinéraire</button>
                 </form>
+            </div>
+            <div id="bloc-itineraire-p4" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Itinéraire">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Itinéraire</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <h3 class="parcours-h3">Itinéraire</h3>
+                <p class="map-coords">Lien carte  : 50.575722, 5.967809 — Niveau 15 <span class="coord-note"></span></p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=50.575722,5.967809&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — itinéraire (point 4)"></iframe>
+                </div>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-gps-vers-etape-5">Accéder au point 5 — visioconférence</button>
+                </div>
             </div>
         </section>
 
@@ -292,9 +316,9 @@
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <h3 class="parcours-h3">Itinéraire</h3>
-                <p class="map-coords">Lien carte (fictif) : 50.484200, 5.971000 — Niveau 15 <span class="coord-note">(à modifier)</span></p>
+                <p class="map-coords">Lien carte  : 50.587840, 5.970914 — Niveau 15 <span class="coord-note"></span></p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.484200,5.971000&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 6"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.587840,5.970914&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 6"></iframe>
                 </div>
             </div>
             <div id="bloc-vers-etape-7" class="parcours-actions parcours-hidden" aria-hidden="true">
