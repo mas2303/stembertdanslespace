@@ -8,7 +8,8 @@
     var CONFIG = {
         /** Nombre de sections #section-etape-1 … #section-etape-N (hors intro / participants). À ajuster si vous ajoutez ou retirez des étapes. */
         nombrePoints: 8,
-        reponseChimie: 'alpha-7',
+        /** Réponse attendue à l’énigme chimie (concentration molaire, ex. 0,2 mol/L). */
+        reponseChimie: '0.2',
         objetCle: 'dague',
         vueRestaurant: 'lac',
         messagesObjetAcceptes: ['dague', 'la dague', 'une dague'],
@@ -130,6 +131,15 @@
             .trim();
     }
 
+    /** Compare une saisie numérique (0.2 ou 0,2, espaces) à CONFIG.reponseChimie. */
+    function reponseChimieOk(val) {
+        var expected = parseFloat(String(CONFIG.reponseChimie).replace(',', '.'));
+        if (isNaN(expected)) return norm(val) === norm(CONFIG.reponseChimie);
+        var raw = String(val || '').trim().replace(/\s/g, '').replace(',', '.');
+        var num = parseFloat(raw);
+        return !isNaN(num) && Math.abs(num - expected) < 1e-9;
+    }
+
     var videoIntro = document.getElementById('video-intro-patrouille');
     var sectionParticipants = document.getElementById('section-participants');
     var formParticipants = document.getElementById('form-participants');
@@ -192,7 +202,7 @@
         e.preventDefault();
         var inp = document.getElementById('input-exo-chimie');
         var err = document.getElementById('err-exo-chimie');
-        var ok = inp && norm(inp.value) === norm(CONFIG.reponseChimie);
+        var ok = inp && reponseChimieOk(inp.value);
         if (!ok) {
             if (err) err.hidden = false;
             return;
