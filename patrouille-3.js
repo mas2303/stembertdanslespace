@@ -19,9 +19,10 @@
          */
         missingVideoMs: 5000,
         /**
-         * Autoplay bloqué (NotAllowedError) : si l’utilisateur ne lance pas la lecture, passage après (ms).
+         * Autoplay bloqué (NotAllowedError / AbortError) : délai avant passage auto si personne ne lance la lecture.
+         * Valeur élevée pour laisser le temps d’appuyer sur lecture (éviter saut après 1 s).
          */
-        noLaunchMs: 1000
+        noLaunchMs: 120000
     };
 
     /**
@@ -83,30 +84,51 @@
             scheduleMissingMedia();
         });
 
-        video.addEventListener('loadedmetadata', function() {
-            var d = video.duration;
-            if (!d || !isFinite(d) || d <= 0) {
-                scheduleMissingMedia();
-            }
-        });
+        if (video.preload === 'metadata') {
+            video.preload = 'auto';
+        }
 
-        var p = video.play();
-        if (p !== undefined && typeof p.then === 'function') {
-            p.then(function() {
-                sawPlaying = true;
-                clearTimers();
-            }).catch(function(err) {
+        function onPlaySuccess() {
+            sawPlaying = true;
+            clearTimers();
+        }
+
+        function tryPlay() {
+            var p = video.play();
+            if (p === undefined || typeof p.then !== 'function') {
+                armNoLaunchIfStillIdle();
+                return;
+            }
+            p.then(onPlaySuccess).catch(function(err) {
                 if (video.error) {
                     scheduleMissingMedia();
-                } else if (err && err.name === 'NotAllowedError') {
+                    return;
+                }
+                if (video.readyState < 3) {
+                    video.addEventListener(
+                        'canplay',
+                        function once() {
+                            video.removeEventListener('canplay', once);
+                            tryPlay();
+                        },
+                        { once: true }
+                    );
+                    return;
+                }
+                if (!video.muted) {
+                    video.muted = true;
+                    tryPlay();
+                    return;
+                }
+                if (err && (err.name === 'NotAllowedError' || err.name === 'AbortError')) {
                     armNoLaunchIfStillIdle();
                 } else {
                     scheduleMissingMedia();
                 }
             });
-        } else {
-            armNoLaunchIfStillIdle();
         }
+
+        tryPlay();
     }
 
     function reveal(section) {
