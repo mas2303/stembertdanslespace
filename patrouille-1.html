@@ -112,25 +112,25 @@
                 </div>
                 <p class="parcours-texte">Direction le <strong>point 2</strong>.</p>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — vidéo pilotes</button>
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — message vocal pilotes</button>
                 </div>
             </div>
         </section>
 
-        <!-- Point 2 — vidéo pilotes + carte zone chimistes (la vidéo chimistes est au point 3) -->
+        <!-- Point 2 — message vocal pilotes + carte zone chimistes (la vidéo chimistes est au point 3) -->
         <section id="section-etape-2" class="suite-section section-video section-etape" aria-hidden="true">
             <div class="container">
                 <h2 class="section-title"><span class="title-badge">POINT 2</span> PILOTES &amp; CARTE CHIMISTES</h2>
             </div>
-            <div class="parcours-separateur" role="separator" aria-label="Vidéo pilotes">
+            <div class="parcours-separateur" role="separator" aria-label="Message vocal pilotes">
                 <span class="parcours-separateur-line" aria-hidden="true"></span>
-                <span class="parcours-separateur-label">Vidéo des deux pilotes</span>
+                <span class="parcours-separateur-label">Message vocal — pilotes</span>
                 <span class="parcours-separateur-line" aria-hidden="true"></span>
             </div>
             <div class="video-wrapper">
-                <video id="video-pilotes" class="video-tactical" playsinline controls>
-                    <source src="videoadieu.mp4" type="video/mp4">
-                </video>
+                <audio id="audio-pilotes" class="audio-parcours" controls preload="auto">
+                    <source src="vocalpilote.m4a" type="audio/mp4">
+                </audio>
             </div>
             <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-apres-pilotes">Bien reçu</button></p>
             <div id="bloc-info-apres-pilotes" class="parcours-bloc parcours-hidden" aria-hidden="true">
@@ -234,7 +234,7 @@
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <div class="video-wrapper">
-                    <video id="video-ingenieurs" class="video-tactical" playsinline controls preload="metadata">
+                    <video id="video-ingenieurs" class="video-tactical" playsinline controls>
                         <source src="video150m.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -273,16 +273,14 @@
             </div>
         </section>
 
-        <!-- Point 5 — Visio pilote / chef d’État -->
+        <!-- Point 5 — message vocal (même fichier que pilotes tant que la vidéo visio n’est pas disponible) -->
         <section id="section-etape-5" class="suite-section section-etape section-etape-visio" aria-hidden="true">
             <div class="container">
-                <h2 class="section-title"><span class="title-badge">POINT 5</span> VISIOCONFÉRENCE</h2>
-                
-            
+                <h2 class="section-title"><span class="title-badge">POINT 5</span> MESSAGE VOCAL</h2>
                 <div class="video-wrapper">
-                    <video id="video-visio-p4" class="video-tactical" playsinline controls>
-                        <source src="videoadieu.mp4" type="video/mp4">
-                    </video>
+                    <audio id="audio-visio-p4" class="audio-parcours" controls preload="auto">
+                        <source src="vocalpilote.m4a" type="audio/mp4">
+                    </audio>
                 </div>
                 <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-visio">Passer au point 6</button></p>
                 <div id="bloc-btn-etape-6" class="parcours-actions parcours-hidden" aria-hidden="true">
@@ -299,10 +297,10 @@
             </h2>
             <p class="parcours-texte">Observez les <strong>photos</strong> et les <strong>similitudes</strong>. Sous les images, saisissez le nom de l’objet identifié.</p>
             <div class="galerie-cinq">
-                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1a/400/300" alt="Indice 1 (placeholder)" loading="lazy" width="400" height="300"></figure>
-                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1b/400/300" alt="Indice 2 (placeholder)" loading="lazy" width="400" height="300"></figure>
-                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1c/400/300" alt="Indice 3 (placeholder)" loading="lazy" width="400" height="300"></figure>
-                <figure class="photo-indice"><img src="https://picsum.photos/seed/p1d/400/300" alt="Indice 4 (placeholder)" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="dague2.jpeg" alt="Indice visuel 1" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="dague3.jpeg" alt="Indice visuel 2" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="dague4.jpeg" alt="Indice visuel 3" loading="lazy" width="400" height="300"></figure>
+                <figure class="photo-indice"><img src="dague5.jpeg" alt="Indice visuel 4" loading="lazy" width="400" height="300"></figure>
             </div>
             <form id="form-objet-totem" class="form-parcours">
                 <label class="participant-label" for="input-objet">Quel objet avez-vous identifié ?</label>
@@ -339,7 +337,7 @@
                 <span class="parcours-separateur-line" aria-hidden="true"></span>
             </div>
             <div class="video-wrapper">
-                <video id="video-adieu" class="video-tactical" playsinline controls preload="metadata">
+                <video id="video-adieu" class="video-tactical" playsinline controls preload="auto">
                     <source src="videoadieu.mp4" type="video/mp4">
                 </video>
             </div>

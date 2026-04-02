@@ -30,6 +30,16 @@
      * Média manquant / erreur : suite après missingVideoMs.
      * Autoplay refusé uniquement : noLaunchMs si personne ne clique sur lecture.
      */
+    function primeVideoElementIfHidden(video) {
+        if (!video || video.tagName !== 'VIDEO') return;
+        if (video.currentSrc) return;
+        var s = video.querySelector('source');
+        if (!s) return;
+        var rel = s.getAttribute('src');
+        if (!rel) return;
+        video.src = rel;
+    }
+
     function waitForVideoEndOrFallback(video, onComplete) {
         var miss = CONFIG.missingVideoMs;
         var nlaunch = CONFIG.noLaunchMs;
@@ -88,18 +98,27 @@
             video.preload = 'auto';
         }
 
-        function onPlaySuccess() {
-            sawPlaying = true;
-            clearTimers();
-        }
-
         function tryPlay() {
+            /* Intro (submit) + vidéo ingénieurs (même clic que show du bloc) : lecture avec son. Le reste : muted puis unmute. */
+            var playWithSoundOnGesture =
+                video.id === 'video-intro-patrouille' || video.id === 'video-ingenieurs';
+            if (!playWithSoundOnGesture) {
+                video.muted = true;
+            }
             var p = video.play();
             if (p === undefined || typeof p.then !== 'function') {
                 armNoLaunchIfStillIdle();
                 return;
             }
-            p.then(onPlaySuccess).catch(function(err) {
+            p.then(function() {
+                sawPlaying = true;
+                clearTimers();
+                if (!playWithSoundOnGesture) {
+                    try {
+                        video.muted = false;
+                    } catch (e) {}
+                }
+            }).catch(function(err) {
                 if (video.error) {
                     scheduleMissingMedia();
                     return;
@@ -204,7 +223,7 @@
 
     document.getElementById('btn-vers-etape-2') && document.getElementById('btn-vers-etape-2').addEventListener('click', function() {
         reveal(document.getElementById('section-etape-2'));
-        var v = document.getElementById('video-pilotes');
+        var v = document.getElementById('audio-pilotes');
         waitForVideoEndOrFallback(v, function() {
             showInner('bloc-info-apres-pilotes');
         });
@@ -255,7 +274,7 @@
 
     function allerVisioEtape5() {
         reveal(document.getElementById('section-etape-5'));
-        var v4 = document.getElementById('video-visio-p4');
+        var v4 = document.getElementById('audio-visio-p4');
         waitForVideoEndOrFallback(v4, function() {
             showInner('bloc-btn-etape-6');
         });
@@ -302,8 +321,13 @@
     document.getElementById('btn-vers-etape-7-adieu') && document.getElementById('btn-vers-etape-7-adieu').addEventListener('click', function() {
         reveal(document.getElementById('section-etape-7'));
         var v6 = document.getElementById('video-adieu');
-        waitForVideoEndOrFallback(v6, function() {
-            showInner('bloc-form-vue-restaurant');
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                primeVideoElementIfHidden(v6);
+                waitForVideoEndOrFallback(v6, function() {
+                    showInner('bloc-form-vue-restaurant');
+                });
+            });
         });
     });
 

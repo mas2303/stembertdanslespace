@@ -4,3 +4,8 @@ Desktop.ini
 
 # macOS
 .DS_Store
+
+# Médias lourds — trop volumineux pour GitHub ; les garder en local / sur l’hébergeur (FTP) à côté des HTML.
+# Le vocal .m4a est versionné (fichier léger).
+*.mp4
+*.mp3
