@@ -33,11 +33,13 @@
     function primeVideoElementIfHidden(video) {
         if (!video || video.tagName !== 'VIDEO') return;
         if (video.currentSrc) return;
-        var s = video.querySelector('source');
-        if (!s) return;
-        var rel = s.getAttribute('src');
-        if (!rel) return;
-        video.src = rel;
+        var sources = video.querySelectorAll('source');
+        if (!sources.length) return;
+        if (sources.length === 1) {
+            var rel = sources[0].getAttribute('src');
+            if (!rel) return;
+            video.src = rel;
+        }
     }
 
     function waitForVideoEndOrFallback(video, onComplete) {
@@ -91,7 +93,10 @@
         video.addEventListener('ended', finish);
 
         video.addEventListener('error', function() {
-            scheduleMissingMedia();
+            window.setTimeout(function() {
+                if (!video.error) return;
+                scheduleMissingMedia();
+            }, 600);
         });
 
         if (video.preload === 'metadata') {
@@ -99,9 +104,11 @@
         }
 
         function tryPlay() {
-            /* Intro (submit) + vidéo ingénieurs (même clic que show du bloc) : lecture avec son. Le reste : muted puis unmute. */
+            /* Intro (submit), pilotes (point 2), ingénieurs : lecture avec son sur geste. Le reste : muted puis unmute. */
             var playWithSoundOnGesture =
-                video.id === 'video-intro-patrouille' || video.id === 'video-ingenieurs';
+                video.id === 'video-intro-patrouille' ||
+                video.id === 'video-pilotes' ||
+                video.id === 'video-ingenieurs';
             if (!playWithSoundOnGesture) {
                 video.muted = true;
             }
@@ -120,7 +127,10 @@
                 }
             }).catch(function(err) {
                 if (video.error) {
-                    scheduleMissingMedia();
+                    window.setTimeout(function() {
+                        if (!video.error) return;
+                        scheduleMissingMedia();
+                    }, 600);
                     return;
                 }
                 /* Vidéo encore dans un bloc caché : pas assez de données → attendre puis rejouer (muted accepté sans geste). */
@@ -218,12 +228,20 @@
     });
 
     document.getElementById('btn-cockpit-trouve') && document.getElementById('btn-cockpit-trouve').addEventListener('click', function() {
+        showInner('bloc-pack-survie');
+        var pack = document.getElementById('bloc-pack-survie');
+        if (pack) pack.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('btn-pack-survie-trouve') && document.getElementById('btn-pack-survie-trouve').addEventListener('click', function() {
         showInner('bloc-apres-cockpit');
+        var suite = document.getElementById('bloc-apres-cockpit');
+        if (suite) suite.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     document.getElementById('btn-vers-etape-2') && document.getElementById('btn-vers-etape-2').addEventListener('click', function() {
         reveal(document.getElementById('section-etape-2'));
-        var v = document.getElementById('audio-pilotes');
+        var v = document.getElementById('video-pilotes');
         waitForVideoEndOrFallback(v, function() {
             showInner('bloc-info-apres-pilotes');
         });

@@ -80,57 +80,69 @@
             </div>
             <div class="video-wrapper">
                 <video id="video-intro-patrouille" class="video-tactical" playsinline controls>
-                    <source src="videointro.mp4" type="video/mp4">
+                    <source src="https://www.eltriofactory.com/assets/thirion/videointro.mp4" type="video/mp4">
                     Votre navigateur ne prend pas en charge la lecture vidéo.
                 </video>
             </div>
             <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-skip-intro">Passer à la carte (point 1)</button></p>
         </section>
 
-        <!-- Point 1 — cockpit seul ; le point 2 est la vidéo pilotes (section suivante) -->
+        <!-- Point 1 — cockpit + pack de survie enterré ; le point 2 est la vidéo pilotes -->
         <section id="section-etape-1" class="suite-section section-map section-etape" aria-hidden="true">
             <h2 class="section-title section-title-map">
                 <span class="title-badge">POINT 1</span>
                 CARTE — COCKPIT (FICTION)
             </h2>
-            <p class="map-coords">50.510418, 6.039995 — Niveau 15 <span class="coord-note"></span></p>
-            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Une fois la zone validée, vous pourrez passer au <strong>point 2</strong>.</p>
+            <p class="map-coords">50.529471, 5.936506 — Niveau 15 <span class="coord-note"></span></p>
+            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Sur place, validez votre arrivée puis <strong>fouillez les alentours</strong> pour trouver un <strong>pack de survie enterré</strong> avant d’accéder au <strong>point 2</strong>.</p>
             <div class="parcours-partie parcours-partie-cockpit">
                 <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Carte &amp; repérage cockpit</p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.510418,6.039995&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.529471,5.936506&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 1"></iframe>
                 </div>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Bien arrivé sur zone — valider</button>
                 </div>
             </div>
+            <div id="bloc-pack-survie" class="parcours-bloc parcours-hidden" aria-hidden="true">
+                <div class="parcours-separateur" role="separator" aria-label="Recherche sur le terrain">
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                    <span class="parcours-separateur-label">Partie 2 — Pack de survie</span>
+                    <span class="parcours-separateur-line" aria-hidden="true"></span>
+                </div>
+                <p class="parcours-texte">Vous êtes sur la bonne zone. <strong>Explorez le terrain autour du cockpit</strong> : un <strong>pack de survie</strong> a été <strong>enterré</strong> dans le périmètre. Retrouvez-le avant de poursuivre la mission.</p>
+                <div class="parcours-actions">
+                    <button type="button" class="btn btn-primary" id="btn-pack-survie-trouve">Nous avons retrouvé le pack — continuer</button>
+                </div>
+            </div>
             <div id="bloc-apres-cockpit" class="parcours-bloc parcours-hidden" aria-hidden="true">
                 <div class="parcours-separateur" role="separator" aria-label="Étape suivante">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Cockpit validé</span>
+                    <span class="parcours-separateur-label">Pack retrouvé</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <p class="parcours-texte">Direction le <strong>point 2</strong>.</p>
                 <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — message vocal pilotes</button>
+                    <button type="button" class="btn btn-primary" id="btn-vers-etape-2">Accéder au point 2 — vidéo pilotes</button>
                 </div>
             </div>
         </section>
 
-        <!-- Point 2 — message vocal pilotes + carte zone chimistes (la vidéo chimistes est au point 3) -->
+        <!-- Point 2 — vidéo pilotes + carte zone chimistes (la vidéo chimistes est au point 3) -->
         <section id="section-etape-2" class="suite-section section-video section-etape" aria-hidden="true">
             <div class="container">
                 <h2 class="section-title"><span class="title-badge">POINT 2</span> PILOTES &amp; CARTE CHIMISTES</h2>
             </div>
-            <div class="parcours-separateur" role="separator" aria-label="Message vocal pilotes">
+            <div class="parcours-separateur" role="separator" aria-label="Vidéo pilotes">
                 <span class="parcours-separateur-line" aria-hidden="true"></span>
-                <span class="parcours-separateur-label">Message vocal — pilotes</span>
+                <span class="parcours-separateur-label">Vidéo — pilotes</span>
                 <span class="parcours-separateur-line" aria-hidden="true"></span>
             </div>
             <div class="video-wrapper">
-                <audio id="audio-pilotes" class="audio-parcours" controls preload="auto">
-                    <source src="vocalpilote.m4a" type="audio/mp4">
-                </audio>
+                <video id="video-pilotes" class="video-tactical" playsinline controls preload="auto">
+                    <source src="https://www.eltriofactory.com/assets/thirion/videopilote.mp4" type="video/mp4">
+                    Votre navigateur ne prend pas en charge la lecture vidéo.
+                </video>
             </div>
             <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-apres-pilotes">Bien reçu</button></p>
             <div id="bloc-info-apres-pilotes" class="parcours-bloc parcours-hidden" aria-hidden="true">
@@ -141,9 +153,9 @@
                 </div>
                 <p class="parcours-texte"><strong>Indice :</strong> les chimistes vous attendent sur la zone ci-dessous. Mémorisez-la : au <strong>point 3</strong>.</p>
                 <div class="parcours-partie parcours-partie-carte">
-                    <p class="map-coords">50.518356, 6.023498 — Niveau 15 <span class="coord-note"></span></p>
+                    <p class="map-coords">50.539023, 5.933007 — Niveau 15 <span class="coord-note"></span></p>
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps?q=50.518356,6.023498&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Carte — zone chimistes (point 2)"></iframe>
+                        <iframe src="https://www.google.com/maps?q=50.539023,5.933007&z=15&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Carte — zone chimistes (point 2)"></iframe>
                     </div>
                 </div>
                 <div class="parcours-actions">
@@ -198,9 +210,9 @@
                     <span class="parcours-separateur-label">Accéder à la carte</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
-                <p class="parcours-texte"><strong>Coordonnées  :</strong> 50.533019, 6.004467 — rendez-vous au <strong>moteur</strong> (point 4).</p>
+                <p class="parcours-texte"><strong>Coordonnées  :</strong> 50.552942, 5.931439 — rendez-vous au <strong>moteur</strong> (point 4).</p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.533019,6.004467&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — moteur (point 4)"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.552942,5.931439&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — moteur (point 4)"></iframe>
                 </div>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-vers-etape-4">On est en position</button>
@@ -216,9 +228,9 @@
             </h2>
             <div class="parcours-partie parcours-partie-carte">
                 <p class="parcours-partie-titre"><span class="parcours-partie-badge"></span> Carte &amp; validation sur place</p>
-                <p class="map-coords">50.550609, 5.988570 — Niveau 16 <span class="coord-note"></span></p>
+                <p class="map-coords">50.569214, 5.937787 — Niveau 16 <span class="coord-note"></span></p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.550609,5.988570&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 4"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.569214,5.937787&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 4"></iframe>
                 </div>
                 <div id="parcours-avant-video-p4" class="parcours-sur-place">
                     <p class="parcours-texte">Lorsque la patrouille est <strong>physiquement au point 4</strong> (moteur), validez pour afficher la vidéo des ingénieurs.</p>
@@ -235,7 +247,7 @@
                 </div>
                 <div class="video-wrapper">
                     <video id="video-ingenieurs" class="video-tactical" playsinline controls>
-                        <source src="video150m.mp4" type="video/mp4">
+                        <source src="https://www.eltriofactory.com/assets/thirion/video150m.mp4" type="video/mp4">
                     </video>
                 </div>
                 <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-ingenieurs">Passer au formulaire GPS</button></p>
@@ -263,9 +275,9 @@
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <h3 class="parcours-h3">Itinéraire</h3>
-                <p class="map-coords">Lien carte  : 50.575722, 5.967809 — Niveau 15 <span class="coord-note"></span></p>
+                <p class="map-coords">Lien carte  : 50.592726, 5.971893 — Niveau 15 <span class="coord-note"></span></p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.575722,5.967809&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — itinéraire (point 4)"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.592726,5.971893&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — itinéraire (point 4)"></iframe>
                 </div>
                 <div class="parcours-actions">
                     <button type="button" class="btn btn-primary" id="btn-gps-vers-etape-5">On est en position</button>
@@ -301,8 +313,6 @@
                 <figure class="photo-indice"><img src="dague3.jpeg" alt="Indice visuel 2" loading="lazy" width="400" height="300"></figure>
                 <figure class="photo-indice"><img src="dague4.jpeg" alt="Indice visuel 3" loading="lazy" width="400" height="300"></figure>
                 <figure class="photo-indice"><img src="dague5.jpeg" alt="Indice visuel 4" loading="lazy" width="400" height="300"></figure>
-                <figure class="photo-indice"><img src="dague6.jpeg" alt="Indice visuel 5" loading="lazy" width="400" height="300"></figure>
-                <figure class="photo-indice"><img src="dague1.jpeg" alt="Indice visuel 6" loading="lazy" width="400" height="300"></figure>
             </div>
             <form id="form-objet-totem" class="form-parcours">
                 <label class="participant-label" for="input-objet">Quel objet avez-vous identifié ?</label>
@@ -318,9 +328,9 @@
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <h3 class="parcours-h3">Itinéraire</h3>
-                <p class="map-coords">Lien carte  : 50.587840, 5.970914 — Niveau 15 <span class="coord-note"></span></p>
+                <p class="map-coords">Lien carte  : 50.587829, 5.970909 — Niveau 15 <span class="coord-note"></span></p>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps?q=50.587840,5.970914&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 6"></iframe>
+                    <iframe src="https://www.google.com/maps?q=50.587829,5.970909&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — point 6"></iframe>
                 </div>
             </div>
             <div id="bloc-vers-etape-7" class="parcours-actions parcours-hidden" aria-hidden="true">
@@ -340,7 +350,7 @@
             </div>
             <div class="video-wrapper">
                 <video id="video-adieu" class="video-tactical" playsinline controls preload="auto">
-                    <source src="videoadieu.mp4" type="video/mp4">
+                    <source src="https://www.eltriofactory.com/assets/thirion/videoadieu.mp4" type="video/mp4">
                 </video>
             </div>
             <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-suite-adieu">Passer à la question</button></p>
@@ -368,7 +378,7 @@
                 <h2 class="section-title"><span class="title-badge">POINT 8</span> RÉVÉLATION</h2>
                 <div class="bloc-message-final">
                     <audio class="audio-parcours" controls preload="metadata">
-                        <source src="appel-p1.mp3" type="audio/mpeg">
+                        <source src="final.m4a" type="audio/mp4">
                     </audio>
                     <p class="message-teaser">Cette histoire sera tirée au clair <strong>la semaine prochaine</strong> — préparez-vous pour la mission suivante.</p>
                     <p class="message-rdv"><strong>Rendez-vous final:</strong> parking de la Gileppe — coordonnées indicatives 50.486000, 5.974500.</p>
