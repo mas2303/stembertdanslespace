@@ -819,6 +819,31 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
     animation: titleIn 1s ease-out 0.6s both;
 }
 
+.hero-photo-instruction {
+    margin-top: 1.25rem;
+    max-width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.5rem;
+    color: var(--texte);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0.92;
+    animation: titleIn 1s ease-out 0.75s both;
+}
+
+.hero-photo-instruction a {
+    color: var(--accent-clair);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+}
+
+.hero-photo-instruction a:hover {
+    color: var(--accent);
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -1317,6 +1342,17 @@ body[data-patrouille="4"] .chemin-carte-unique[data-patrouille="4"] {
         flex-direction: column;
         margin-top: 1.75rem;
         padding: 0 0.2rem;
+    }
+
+    .hero-photo-instruction {
+        font-size: clamp(0.82rem, 3.2vw, 0.95rem);
+        max-width: 21rem;
+        padding: 0 0.35rem;
+        margin-top: 1rem;
+    }
+
+    .hero-photo-instruction a {
+        white-space: normal;
     }
 
     .btn {
