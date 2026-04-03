@@ -210,7 +210,7 @@
             introSkip = false;
             waitForVideoEndOrFallback(videoIntro, function() {
                 if (introSkip) return;
-                reveal(document.getElementById('section-etape-1'));
+                reveal(document.getElementById('section-colis-office-tourisme'));
             });
         });
     }
@@ -222,16 +222,14 @@
                 videoIntro.pause();
             } catch (err) {}
         }
+        reveal(document.getElementById('section-colis-office-tourisme'));
+    });
+
+    document.getElementById('btn-colis-ot-recu') && document.getElementById('btn-colis-ot-recu').addEventListener('click', function() {
         reveal(document.getElementById('section-etape-1'));
     });
 
     document.getElementById('btn-cockpit-trouve') && document.getElementById('btn-cockpit-trouve').addEventListener('click', function() {
-        showInner('bloc-pack-survie');
-        var pack = document.getElementById('bloc-pack-survie');
-        if (pack) pack.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    document.getElementById('btn-pack-survie-trouve') && document.getElementById('btn-pack-survie-trouve').addEventListener('click', function() {
         showInner('bloc-apres-cockpit');
         var suite = document.getElementById('bloc-apres-cockpit');
         if (suite) suite.scrollIntoView({ behavior: 'smooth', block: 'start' });

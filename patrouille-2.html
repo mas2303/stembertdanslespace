@@ -85,17 +85,33 @@
                     Votre navigateur ne prend pas en charge la lecture vidéo.
                 </video>
             </div>
-            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-skip-intro">Passer à la carte (point 1)</button></p>
+            <p class="parcours-skip"><button type="button" class="btn btn-outline" id="btn-skip-intro">Passer à l’office du tourisme (colis)</button></p>
         </section>
 
-        <!-- Point 1 — cockpit + pack de survie enterré ; le point 2 est la vidéo pilotes -->
+        <!-- Patrouille 2 uniquement : colis à l’office du tourisme avant la 1re carte -->
+        <section id="section-colis-office-tourisme" class="suite-section section-etape section-colis-ot" aria-hidden="true">
+            <div class="container">
+                <h2 class="section-title"><span class="title-badge">DÉPART</span> OFFICE DU TOURISME — COLIS</h2>
+            </div>
+            <div class="parcours-separateur" role="separator" aria-label="Colis office du tourisme">
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+                <span class="parcours-separateur-label">Avant la carte — récupération du colis</span>
+                <span class="parcours-separateur-line" aria-hidden="true"></span>
+            </div>
+            <p class="parcours-texte">Avant d’ouvrir la <strong>première carte</strong> (point 1), rendez-vous à <strong>l’office du tourisme</strong> : un <strong>colis</strong> vous y attend. Récupérez-le pour démarrer la mission sur le terrain.</p>
+            <div class="parcours-actions">
+                <button type="button" class="btn btn-primary" id="btn-colis-ot-recu">Nous avons le colis — accéder au point 1 (carte)</button>
+            </div>
+        </section>
+
+        <!-- Point 1 — cockpit ; le point 2 est la vidéo pilotes -->
         <section id="section-etape-1" class="suite-section section-map section-etape" aria-hidden="true">
             <h2 class="section-title section-title-map">
                 <span class="title-badge">POINT 1</span>
                 CARTE — COCKPIT (FICTION)
             </h2>
             <p class="map-coords">50.529471, 5.936506 — Niveau 15 <span class="coord-note"></span></p>
-            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Sur place, validez votre arrivée puis <strong>fouillez les alentours</strong> pour trouver un <strong>pack de survie enterré</strong> avant d’accéder au <strong>point 2</strong>.</p>
+            <p class="parcours-texte">Au <strong>point 1</strong>, repérez le <strong>cockpit</strong> sur la carte. Une fois sur zone, validez votre arrivée pour poursuivre vers le <strong>point 2</strong>.</p>
             <div class="parcours-partie parcours-partie-cockpit">
                 <p class="parcours-partie-titre"><span class="parcours-partie-badge">Partie 1</span> Carte &amp; repérage cockpit</p>
                 <div class="map-wrapper">
@@ -105,21 +121,10 @@
                     <button type="button" class="btn btn-primary" id="btn-cockpit-trouve">Bien arrivé sur zone — valider</button>
                 </div>
             </div>
-            <div id="bloc-pack-survie" class="parcours-bloc parcours-hidden" aria-hidden="true">
-                <div class="parcours-separateur" role="separator" aria-label="Recherche sur le terrain">
-                    <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Partie 2 — Pack de survie</span>
-                    <span class="parcours-separateur-line" aria-hidden="true"></span>
-                </div>
-                <p class="parcours-texte">Vous êtes sur la bonne zone. <strong>Explorez le terrain autour du cockpit</strong> : un <strong>pack de survie</strong> a été <strong>enterré</strong> dans le périmètre. Retrouvez-le avant de poursuivre la mission.</p>
-                <div class="parcours-actions">
-                    <button type="button" class="btn btn-primary" id="btn-pack-survie-trouve">Nous avons retrouvé le pack — continuer</button>
-                </div>
-            </div>
             <div id="bloc-apres-cockpit" class="parcours-bloc parcours-hidden" aria-hidden="true">
                 <div class="parcours-separateur" role="separator" aria-label="Étape suivante">
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
-                    <span class="parcours-separateur-label">Pack retrouvé</span>
+                    <span class="parcours-separateur-label">Cockpit validé</span>
                     <span class="parcours-separateur-line" aria-hidden="true"></span>
                 </div>
                 <p class="parcours-texte">Direction le <strong>point 2</strong>.</p>
